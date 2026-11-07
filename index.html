@@ -4,86 +4,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jobify | فرصك أونلاين</title>
+<meta name="theme-color" content="#070d25">
+<title>Jobify | Online Opportunities</title>
 <style>
+:root{--bg:#070d25;--panel:#101d40;--cyan:#42dcff;--blue:#287cff;--purple:#945bff;--muted:#b6c5e3;--white:#f7f9ff}
 *{box-sizing:border-box}
-body{margin:0;background:#060d24;color:#fff;font-family:Arial,Tahoma,sans-serif;line-height:1.8}
-header{padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:#091432;border-bottom:1px solid #203b70}
-.logo{font-size:30px;font-weight:900;direction:ltr}
-.logo span{color:#29dfff}
-a{color:inherit;text-decoration:none}
-.btn{display:inline-block;padding:12px 22px;border-radius:12px;background:linear-gradient(100deg,#168bff,#9455ff);font-weight:bold}
-.hero{text-align:center;padding:75px 20px 65px;background:radial-gradient(ellipse at center,#173c81,#080e2c 70%)}
-.hero h1{font-size:clamp(35px,6vw,65px);line-height:1.3;margin:20px 0}
-.hero h1 span{color:#38dfff}
-.hero p{color:#c4d4f2;font-size:18px;max-width:680px;margin:15px auto 28px}
-.tag{color:#55eaff;border:1px solid #2866a8;border-radius:30px;padding:8px 17px}
-section{padding:55px 6%}
-h2{text-align:center;font-size:32px;margin-bottom:8px}
-.sub{text-align:center;color:#aabbdc;margin-bottom:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:linear-gradient(145deg,#132750,#0b1532);border:1px solid #294675;border-radius:18px;padding:23px;transition:.2s}
-.card:hover{transform:translateY(-5px);border-color:#36dfff}
-.icon{font-size:38px}
-.card h3{margin:8px 0;color:#60ddff}
-.card p{color:#b9c9e6;font-size:14px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
-.step{padding:20px;border-radius:15px;background:#101f42;border:1px solid #294675}
-.step b{color:#45dfff}
-.cta{text-align:center;background:linear-gradient(120deg,#123d85,#422477);border-radius:24px;padding:35px 18px}
-.cta p{color:#d5e3ff}
-footer{text-align:center;padding:25px;color:#9db0d3;border-top:1px solid #203b70;font-size:13px}
-@media(max-width:600px){header{padding:14px 4%}.logo{font-size:24px}.hero{padding:55px 16px}.hero p{font-size:16px}section{padding:42px 5%}}
+body{margin:0;background:radial-gradient(ellipse at 20% 0%,#22205b,transparent 40%),var(--bg);color:var(--white);font-family:Arial,Tahoma,sans-serif;line-height:1.8}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:5;background:#080f28ed;backdrop-filter:blur(12px);border-bottom:1px solid #263b66}
+nav{width:92%;max-width:1150px;margin:auto;height:75px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:29px;font-weight:900;direction:ltr;letter-spacing:-1px}
+.logo span{color:var(--cyan)}
+.navlinks{display:flex;gap:22px;color:var(--muted);font-size:14px}
+button{font:inherit;cursor:pointer}
+.lang{background:#142650;border:1px solid #38568c;color:white;border-radius:10px;padding:9px 15px;font-weight:bold}
+.btn{display:inline-block;border:0;padding:12px 21px;border-radius:12px;background:linear-gradient(110deg,var(--blue),var(--purple));color:white;font-weight:bold;box-shadow:0 8px 25px #287cff35}
+.btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
+.hero{text-align:center;padding:80px 18px 65px;background:radial-gradient(ellipse at center,#173d82 0%,#0b1536 48%,transparent 75%)}
+.pill{display:inline-block;padding:6px 17px;border:1px solid #42dcff66;border-radius:30px;color:#91efff;background:#42dcff0c;font-size:13px}
+h1{font-size:clamp(37px,6vw,67px);line-height:1.25;margin:22px auto 12px}
+.gradient{background:linear-gradient(90deg,#fff,#52e5ff,#b18aff);background-clip:text;color:transparent}
+.hero p{max-width:720px;margin:15px auto 28px;color:#c2d2ed;font-size:17px}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.secondary{background:#10234a;border:1px solid #34568a;box-shadow:none}
+.proof{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;color:#d0ddf4;font-size:13px;margin-top:27px}
+.proof span:before{content:"✓ ";color:var(--cyan)}
+section{padding:55px 5%}
+.heading{text-align:center;margin-bottom:28px}
+.heading h2{font-size:32px;margin:0 0 5px}
+.heading p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px;max-width:1150px;margin:auto}
+.card{padding:23px;border:1px solid #2b4577;border-radius:19px;background:linear-gradient(145deg,#142750,#0c1735);transition:.2s}
+.card:hover{transform:translateY(-5px);border-color:var(--cyan)}
+.icon{font-size:35px}
+.card h3{margin:7px 0;color:#69e3ff}
+.card p{color:var(--muted);font-size:14px;margin:0}
+.search{max-width:700px;margin:0 auto 20px;display:flex;gap:8px;padding:8px;background:#101d40;border:1px solid #304875;border-radius:14px}
+.search input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:white;padding:8px;font-size:15px}
+.search input::placeholder{color:#94a8ce}
+.filters{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.filter{padding:8px 14px;border:1px solid #304875;border-radius:25px;background:#101d40;color:#d9e4f7}
+.filter.active{background:#2455a0;border-color:var(--cyan)}
+.listings{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.listing{background:#101d40;border:1px solid #2b4577;border-radius:16px;padding:20px}
+.listing h3{margin:5px 0}
+.listing p{color:var(--muted);font-size:14px}
+.status{font-size:11px;color:#8fe9ff}
+.empty{text-align:center;padding:25px;border:1px dashed #395680;border-radius:15px;color:var(--muted);grid-column:1/-1}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;max-width:1100px;margin:auto}
+.step{padding:21px;background:#101d40;border:1px solid #2b4577;border-radius:16px}
+.step b{color:var(--cyan)}
+.step p{color:var(--muted);font-size:14px}
+.cta{max-width:1000px;margin:auto;text-align:center;padding:38px 18px;border:1px solid #4165a5;border-radius:23px;background:radial-gradient(ellipse at top,#214c91,#101c42)}
+.cta p{color:#d0ddf4}
+footer{text-align:center;padding:25px;color:#94a8ce;border-top:1px solid #263b66;font-size:13px}
+[hidden]{display:none!important}
+@media(max-width:650px){.navlinks{display:none}nav{height:67px}.hero{padding:55px 15px 45px}section{padding:42px 5%}.heading h2{font-size:27px}.hero p{font-size:15px}}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">Jobi<span>fy</span></div>
-<a class="btn" href="https://t.me/Jobifye">قناة تيليجرام ↗</a>
+<nav>
+<a class="logo" href="#">Jobi<span>fy</span></a>
+<div class="navlinks">
+<a href="#categories" data-i="nav1">المجالات</a>
+<a href="#opportunities" data-i="nav2">الفرص</a>
+<a href="#how" data-i="nav3">كيف تبدأ؟</a>
+</div>
+<button class="lang" id="language">EN | English</button>
+</nav>
 </header>
 
+<main>
 <div class="hero">
-<div class="tag">🚀 فرص رقمية في مكان واحد</div>
-<h1>اكتشف فرصتك التالية<br><span>في العالم الأونلاين</span></h1>
-<p>وظائف عن بُعد، مهام صغيرة، تدريب الذكاء الاصطناعي وتطبيقات المكافآت. اكتشف الفرص وافهم تفاصيلها قبل ما تبدأ.</p>
-<a class="btn" href="https://t.me/Jobifye">انضم إلى Jobify الآن ↗</a>
+<div class="pill" data-i="pill">🚀 فرص رقمية في مكان واحد</div>
+<h1><span data-i="hero1">اكتشف فرصتك التالية</span><br><span class="gradient" data-i="hero2">في العالم الأونلاين</span></h1>
+<p data-i="intro">وظائف عن بُعد، مهام صغيرة، تدريب الذكاء الاصطناعي وتطبيقات المكافآت. اكتشف الفرص وافهم تفاصيلها قبل ما تبدأ.</p>
+<div class="actions">
+<a class="btn" href="https://t.me/Jobifye" data-i="join">انضم إلى Jobify ↗</a>
+<a class="btn secondary" href="#categories" data-i="explore">استكشف المجالات</a>
+</div>
+<div class="proof">
+<span data-i="proof1">شرح واضح للفرص</span>
+<span data-i="proof2">شروط ومتطلبات التسجيل</span>
+<span data-i="proof3">تنبيه للمخاطر</span>
+</div>
 </div>
 
-<section>
-<h2>🌐 مجالات Jobify</h2>
-<p class="sub">اختار المجال اللي يناسب مهاراتك واهتماماتك</p>
+<section id="categories">
+<div class="heading">
+<h2 data-i="catTitle">🌐 مجالات Jobify</h2>
+<p data-i="catSub">اختار المجال اللي يناسب مهاراتك واهتماماتك</p>
+</div>
 <div class="grid">
-<div class="card"><div class="icon">💼</div><h3>Remote Jobs</h3><p>وظائف عن بُعد وفرص عمل من المنزل، مع شرح طريقة التقديم والمتطلبات.</p></div>
-<div class="card"><div class="icon">⚡</div><h3>Microtasks</h3><p>مهام صغيرة عبر الإنترنت على منصات مختلفة.</p></div>
-<div class="card"><div class="icon">🤖</div><h3>AI Training</h3><p>فرص تدريب وتقييم نماذج الذكاء الاصطناعي.</p></div>
-<div class="card"><div class="icon">🎮</div><h3>Games & Rewards</h3><p>تطبيقات وألعاب تقدم نقاطًا ومكافآت حسب شروطها.</p></div>
-<div class="card"><div class="icon">🌍</div><h3>Online Platforms</h3><p>اكتشف مواقع وأدوات رقمية وفرص جديدة.</p></div>
-<div class="card"><div class="icon">📚</div><h3>Guides & Reviews</h3><p>شروحات ومراجعات لمساعدتك على فهم المنصات.</p></div>
+<div class="card"><div class="icon">💼</div><h3>Remote Jobs</h3><p data-i="c1">وظائف عن بُعد وفرص عمل من المنزل مع شرح المتطلبات وطريقة التقديم.</p></div>
+<div class="card"><div class="icon">⚡</div><h3>Microtasks</h3><p data-i="c2">مهام رقمية صغيرة على منصات مختلفة.</p></div>
+<div class="card"><div class="icon">🤖</div><h3>AI Training</h3><p data-i="c3">فرص تدريب وتقييم بيانات ونماذج الذكاء الاصطناعي.</p></div>
+<div class="card"><div class="icon">🎮</div><h3>Games & Rewards</h3><p data-i="c4">تطبيقات وألعاب تقدم نقاطًا ومكافآت حسب شروطها.</p></div>
+<div class="card"><div class="icon">🌍</div><h3>Online Platforms</h3><p data-i="c5">مواقع وأدوات رقمية وفرص جديدة للاستفادة من الإنترنت.</p></div>
+<div class="card"><div class="icon">📚</div><h3>Guides & Reviews</h3><p data-i="c6">شروحات ومراجعات لفهم المنصات والمصداقية ووسائل الدفع.</p></div>
 </div>
 </section>
 
-<section>
-<h2>كيف تبدأ؟</h2>
-<p class="sub">ثلاث خطوات بسيطة</p>
+<section id="opportunities">
+<div class="heading">
+<h2 data-i="opTitle">🔎 دليل الفرص</h2>
+<p data-i="opSub">ابحث وصنّف الفرص حسب المجال</p>
+</div>
+<div class="search">
+<span>🔍</span>
+<input id="search" type="search" data-placeholder="ابحث عن وظيفة أو منصة..." placeholder="ابحث عن وظيفة أو منصة...">
+</div>
+<div class="filters">
+<button class="filter active" data-filter="all" data-i="all">الكل</button>
+<button class="filter" data-filter="jobs" data-i="jobs">وظائف</button>
+<button class="filter" data-filter="tasks" data-i="tasks">مهام صغيرة</button>
+<button class="filter" data-filter="ai">AI Training</button>
+<button class="filter" data-filter="games" data-i="games">ألعاب ومكافآت</button>
+</div>
+<div class="listings" id="results">
+<div class="empty" data-i="empty">قريبًا ستُضاف فرص حقيقية مع تفاصيلها وروابط التقديم الرسمية. تابع تيليجرام لمعرفة الجديد.</div>
+</div>
+</section>
+
+<section id="how">
+<div class="heading">
+<h2 data-i="howTitle">كيف تبدأ؟</h2>
+<p data-i="howSub">ثلاث خطوات بسيطة قبل أي تسجيل</p>
+</div>
 <div class="steps">
-<div class="step"><b>01 — اكتشف</b><h3>اختار الفرصة</h3><p>حدد المجال المناسب ليك.</p></div>
-<div class="step"><b>02 — افهم</b><h3>راجع الشروط</h3><p>اعرف متطلبات التسجيل والدفع.</p></div>
-<div class="step"><b>03 — ابدأ</b><h3>قدّم بوعي</h3><p>استخدم المواقع الرسمية واحمِ بياناتك.</p></div>
+<div class="step"><b>01 — <span data-i="s1">اكتشف</span></b><h3 data-i="s1t">اختار الفرصة</h3><p data-i="s1p">حدد المجال المناسب لوقتك ومهاراتك.</p></div>
+<div class="step"><b>02 — <span data-i="s2">افهم</span></b><h3 data-i="s2t">راجع الشروط</h3><p data-i="s2p">تأكد من الدول المتاحة ومتطلبات القبول وطرق الدفع.</p></div>
+<div class="step"><b>03 — <span data-i="s3">ابدأ</span></b><h3 data-i="s3t">قدّم بوعي</h3><p data-i="s3p">استخدم المواقع الرسمية واحمِ بياناتك.</p></div>
 </div>
 </section>
 
 <section>
 <div class="cta">
-<h2>خلي الفرص أقرب ليك 🚀</h2>
-<p>تابع Jobify واكتشف أحدث الوظائف والمهام والفرص الرقمية.</p>
-<a class="btn" href="https://t.me/Jobifye">انضم لقناة Jobify</a>
+<h2 data-i="ctaTitle">خلي الفرص أقرب ليك 🚀</h2>
+<p data-i="ctaText">تابع Jobify على تيليجرام عشان تعرف أحدث الفرص والشروحات.</p>
+<a class="btn" href="https://t.me/Jobifye" data-i="ctaButton">انضم لقناة Jobify ↗</a>
 </div>
 </section>
+</main>
 
 <footer>
 <p>© 2026 Jobify — Discover Opportunities. Work Smart. Earn Online.</p>
-<p>لا نضمن القبول أو تحقيق دخل. تحقق دائمًا من شروط كل منصة ومصداقيتها.</p>
+<p data-i="disclaimer">Jobify منصة تعريفية. لا نضمن القبول أو تحقيق دخل. تحقق من شروط كل منصة ومصداقيتها.</p>
 </footer>
+
+<script>
+const translations={
+en:{
+nav1:"Categories",nav2:"Opportunities",nav3:"How it works",
+pill:"🚀 Digital opportunities in one place",
+hero1:"Discover Your Next Opportunity",hero2:"In the Online World",
+intro:"Remote jobs, microtasks, AI training and reward apps. Discover opportunities and understand the details before you start.",
+join:"Join Jobify ↗",explore:"Explore Categories",
+proof1:"Clear opportunity guides",proof2:"Registration requirements",proof3:"Safety awareness",
+catTitle:"🌐 Explore Jobify Categories",catSub:"Choose the field that matches your skills and interests",
+c1:"Remote jobs and work-from-home opportunities with application guidance.",
+c2:"Small digital tasks on different platforms.",
+c3:"Opportunities to evaluate data and train AI models.",
+c4:"Apps and games offering points or rewards under their own terms.",
+c5:"Websites and digital tools to explore online opportunities.",
+c6:"Guides and reviews to understand platforms, trustworthiness and payments.",
+opTitle:"🔎 Opportunity Directory",opSub:"Search and filter opportunities by category",
+"data-placeholder":"Search for a job or platform...",all:"All",jobs:"Jobs",tasks:"Microtasks",games:"Games & Rewards",
+empty:"Real opportunities with details and official application links will be added here soon. Follow Telegram for updates.",
+howTitle:"How to Get Started",howSub:"Three simple steps before registering",
+s1:"Discover",s1t:"Choose an opportunity",s1p:"Find a field that matches your time and skills.",
+s2:"Understand",s2t:"Review the requirements",s2p:"Check eligible countries, requirements and payment methods.",
+s3:"Start",s3t:"Apply carefully",s3p:"Use official websites and protect your personal information.",
+ctaTitle:"Bring Opportunities Closer 🚀",ctaText:"Follow Jobify on Telegram for new opportunities and guides.",
+ctaButton:"Join Jobify on Telegram ↗",
+disclaimer:"Jobify is an informational platform. We do not guarantee acceptance or income. Always verify each platform's terms and legitimacy."
+},
+ar:{
+nav1:"المجالات",nav2:"الفرص",nav3:"كيف تبدأ؟",
+pill:"🚀 فرص رقمية في مكان واحد",
+hero1:"اكتشف فرصتك التالية",hero2:"في العالم الأونلاين",
+intro:"وظائف عن بُعد، مهام صغيرة، تدريب الذكاء الاصطناعي وتطبيقات المكافآت. اكتشف الفرص وافهم تفاصيلها قبل ما تبدأ.",
+join:"انضم إلى Jobify ↗",explore:"استكشف المجالات",
+proof1:"شرح واضح للفرص",proof2:"شروط ومتطلبات التسجيل",proof3:"تنبيه للمخاطر",
+catTitle:"🌐 مجالات Jobify",catSub:"اختار المجال اللي يناسب مهاراتك واهتماماتك",
+c1:"وظائف عن بُعد وفرص عمل من المنزل مع شرح المتطلبات وطريقة التقديم.",
+c2:"مهام رقمية صغيرة على منصات مختلفة.",
+c3:"فرص تدريب وتقييم بيانات ونماذج الذكاء الاصطناعي.",
+c4:"تطبيقات وألعاب تقدم نقاطًا ومكافآت حسب شروطها.",
+c5:"مواقع وأدوات رقمية وفرص جديدة للاستفادة من الإنترنت.",
+c6:"شروحات ومراجعات لفهم المنصات والمصداقية ووسائل الدفع.",
+opTitle:"🔎 دليل الفرص",opSub:"ابحث وصنّف الفرص حسب المجال",
+"data-placeholder":"ابحث عن وظيفة أو منصة...",all:"الكل",jobs:"وظائف",tasks:"مهام صغيرة",games:"ألعاب ومكافآت",
+empty:"قريبًا ستُضاف فرص حقيقية مع تفاصيلها وروابط التقديم الرسمية. تابع تيليجرام لمعرفة الجديد.",
+howTitle:"كيف تبدأ؟",howSub:"ثلاث خطوات بسيطة قبل أي تسجيل",
+s1:"اكتشف",s1t:"اختار الفرصة",s1p:"حدد المجال المناسب لوقتك ومهاراتك.",
+s2:"افهم",s2t:"راجع الشروط",s2p:"تأكد من الدول المتاحة ومتطلبات القبول وطرق الدفع.",
+s3:"ابدأ",s3t:"قدّم بوعي",s3p:"استخدم المواقع الرسمية واحمِ بياناتك.",
+ctaTitle:"خلي الفرص أقرب ليك 🚀",ctaText:"تابع Jobify على تيليجرام عشان تعرف أحدث الفرص والشروحات.",
+ctaButton:"انضم لقناة Jobify ↗",
+disclaimer:"Jobify منصة تعريفية. لا نضمن القبول أو تحقيق دخل. تحقق من شروط كل منصة ومصداقيتها."
+}
+};
+let language="ar";
+document.getElementById("language").addEventListener("click",()=>{
+language=language==="ar"?"en":"ar";
+document.documentElement.lang=language;
+document.documentElement.dir=language==="ar"?"rtl":"ltr";
+document.querySelectorAll("[data-i]").forEach(el=>{
+const key=el.dataset.i;
+if(translations[language][key])el.textContent=translations[language][key];
+});
+document.getElementById("search").placeholder=translations[language]["data-placeholder"];
+document.getElementById("language").textContent=language==="ar"?"EN | English":"AR | العربية";
+});
+const filterButtons=[...document.querySelectorAll(".filter")];
+filterButtons.forEach(btn=>btn.addEventListener("click",()=>{
+filterButtons.forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+}));
+</script>
 </body>
 </html>
